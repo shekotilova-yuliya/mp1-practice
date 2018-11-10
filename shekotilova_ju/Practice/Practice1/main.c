@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <math.h>
 void main ()
-   {
+{
 	float Mdvp, Mdsp, Mderevo, M;
 	float Pdsp, Pdvp, Pderevo;
 	float Vzs, Vb,Vd, Vp,Vvnk;
@@ -30,4 +30,4 @@ void main ()
 		Mderevo=Vd*Pderevo;//находим массу всего, что связано с деревом
 		M = (Mdsp+Mdvp+Mderevo)/1000000;//находим массу шкафа
 		printf("Масса шкафа = %f кг", M );
-	}
+}
