@@ -1,34 +1,42 @@
 #include <stdio.h>
-#include <math.h>
 void main ()
 {
-float Mdvp, Mdsp, Mderevo, M;
-float Pdsp, Pdvp, Pderevo;
-float Vzs, Vb,Vd, Vp,Vvnk;
-float h, w,t1; //накладная задняя стенка из ДВП
-float d, t2; //2 боковины из ДСП
-float t3; //накладные верхняя и нижняя крышки из ДСП
-float t4; //2 накладные двери шкафа из ДЕРЕВА
-float r; //внутренние полки из ДСП
-scanf("%f %f %f %f %f %f %f %f %f %f", &Pdsp, &Pdvp, &Pderevo, &h, &w, &t1, &d, &t2, &t3, &t4);
-//ВСЕ ИЗМЕРЕНИЯ ВВОДИТЬ В СМ, КРОМЕ ПЛОТНОСТИ
-if ((h>=180)&&(h<=220))
- {
-  r=h/40;
- }
-else 
-	printf("Такого шкафа не существует");
-if (((w>=80)&&(w<=120))&&((d>=50)&&(d<=90)))
- {
-  Vzs=h*w*t1;//ДВП накладная стенка
-  Vb=2*h*d*t2;//ДСП боковины
-  Vvnk=2*w*d*t3;//ДСП верхняя и нижняя крышки
-  Vd=2*h*w*t4;//дерево двери
-  Vp=r*w*d;//ДСП полки
- }
-  Mdsp=(Vb+Vvnk+Vp)*Pdsp;
-  Mdvp=Vzs*Pdvp;
-  Mderevo=Vd*Pderevo;
-  M = (Mdsp+Mdvp+Mderevo)/1000000;
-  printf("Масса шкафа = %f кг", M );
-}  
+   	float Mdvp, Mdsp, Mderevo, M;
+	float Pdsp, Pdvp, Pderevo;
+	float Vzs, Vb,Vd, Vp,Vvnk;
+	float h, w,t1=0.005; //накладная задняя стенка из ДВП
+	float d, t2=0.015; //2 боковины из ДСП
+	float t3=0.015;//верхняя и нижняя крышки из ДСП
+	float t4=0.01;//2 накладные двери шкафа из ДЕРЕВА
+	float r, t5= 0.015; //внутренние полки из ДСП
+	printf("Введите плотность ДСП:\n");
+	scanf("%f",&Pdsp);
+	printf("Введите плотность ДВП:\n");
+	scanf("%f",&Pdvp);
+	printf("Введите плотность дерева:\n");
+	scanf("%f",&Pderevo);
+	printf("Введите высоту шкафа:\n");
+	scanf("%f",&h);
+	printf("Введите ширину шкафа:\n");
+	scanf("%f",&w);
+	printf("Введите глубину шкафа:\n");
+	scanf("%f",&d);
+	if (((h>=1.8)&&(h<=2.2))&&((w>=0.8)&&(w<=1.2))&&((d>=0.5)&&(d<=0.9)))
+	{
+		r=h/0.4;	//количество полок
+		Vzs=h*w*t1;//ДВП накладная стенка
+		Vb=2*h*d*t2;//ДСП боковины
+		Vvnk=2*w*d*t3;//ДСП верхняя и нижняя крышки
+		Vd=2*h*w*t4;//дерево двери
+		Vp=r*w*d*t5;//ДСП полки 
+	}
+	else
+	{
+		printf("Такого шкафа не существует \n");
+	}
+	Mdsp=(Vb+Vvnk+Vp)*Pdsp; //находим массу всего, что связано с ДСП
+	Mdvp=Vzs*Pdvp; //находим массу всего, что связано с ДВП
+	Mderevo=Vd*Pderevo;//находим массу всего, что связано с деревом
+	M = Mdsp+Mdvp+Mderevo;//находим массу шкафа
+	printf("Масса шкафа = %f кг", M );
+}
