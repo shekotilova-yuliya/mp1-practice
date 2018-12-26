@@ -45,7 +45,7 @@ void main()
         }
         if (ch!=n)
         {
-            printf("Error (your number !=%d ", n);
+            printf("Error (your number !=%d) ", n);
             continue;
         }
         do 
@@ -55,7 +55,7 @@ void main()
                 c[i]=num%10;
                 num=num/10;
             }
-            for (i= n-1);i>= 0;i--)
+            for (i= (n-1);i>= 0;i--)
             {
                 for (j=(i-1);j>= 0;j--)
                 {
