@@ -35,7 +35,7 @@ void main ()
 	else
 	{
 		printf("Такого шкафа не существует \n");
-		break;
+		return;
 	}
 	Mdsp=(Vb+Vvnk+Vp)*Pdsp; //находим массу всего, что связано с ДСП
 	Mdvp=Vzs*Pdvp; //находим массу всего, что связано с ДВП
