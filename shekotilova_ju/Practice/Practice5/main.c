@@ -262,47 +262,47 @@ void main()
 			{
 				start=clock();
 				SelectionSort(index, ssize, count);
-				stop = clock();
+				end = clock();
 				break;
 			}
 			case 2:
 			{
 				start=clock();
 				InsertSort(index, ssize, count);
-				stop = clock();
+				end = clock();
 				break;
 			}
 			case 3:
 			{
 				start=clock();
 				BubbleSort(index, ssize, count);
-				stop = clock();
+				end = clock();
 				break;
 			}
 			case 4:
 			{
 				start=clock();
 				CountingSort(index, ssize, count);
-				stop = clock();
+				end = clock();
 				break;
 			}
 			case 5:
 			{
 				start=clock();
 				QuickSort(index, ssize, 0, count-1);
-				stop = clock();
+				end= clock();
 				break;
 			}
 			case 6:
 			{
 				start=clock();
 				MergeSort(index, ssize, 0, count-1);
-				stop = clock();
+				end = clock();
 				break;
 			}
 			total_time = (float)(end - start)/CLOCKS_PER_SEC;
 			Output(index, nname, ssize, count);
-			printf("Sorting time: %.3f señ \n",total_time);
+			printf("Sorting time: %.3f seÃ± \n",total_time);
 			free(index);
 		}
 	}
