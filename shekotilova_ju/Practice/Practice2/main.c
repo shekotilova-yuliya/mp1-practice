@@ -63,7 +63,7 @@ void main()
                     k++;
                 }
             }
-        } while (k != 0);
+        } while (k);
         for (i = (n - 1); i >= 0; i--)
         {
             for (j = (n - 1); j >= 0; j--)
